@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask POST</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>What's your name?</h1>
+
+        <form method="post">
+            <input type="text" name="name" placeholder="Masukkan nama" value="{{ name or '' }}">
+            <button type="submit">Send</button>
+        </form>
+
+        {% if name %}
+            <p class="label">Hello, {{ name }}!</p>
+        {% endif %}
+        {% if error %}
+            <p class="label error">{{ error }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>
